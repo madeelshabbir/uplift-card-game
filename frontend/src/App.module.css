@@ -1,11 +1,7 @@
 .body {
-  @apply text-center;
-}
+  @apply min-h-screen flex justify-center items-center font-courier-prime;
 
-.header {
-  @apply flex flex-col text-white bg-slate-700 h-screen align-middle justify-center text-lg;
-}
-
-.logo {
-  @apply h-2/6;
+  background: #0A863E;
+  background: -webkit-linear-gradient(to top, #05451F, #0A863E);
+  background: linear-gradient(to top, #05451F, #0A863E);
 }
