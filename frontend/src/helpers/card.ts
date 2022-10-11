@@ -1,8 +1,8 @@
-import { HEX_BLACK, HEX_RED } from '../constants/color-codes';
 import { ReactComponent as Club } from '../assets/images/Clover.svg';
 import { ReactComponent as Diamond } from '../assets/images/Diamond.svg';
 import { ReactComponent as Heart } from '../assets/images/Heart.svg';
 import { ReactComponent as Spade } from '../assets/images/Spade.svg';
+import { HEX_BLACK, HEX_RED } from '../constants/color-codes';
 import { TEXT_BLACK, TEXT_RED } from '../constants/color-style-classes';
 import { CardColor } from '../types/card/card-color';
 import { CardProps } from '../types/card/card-props';

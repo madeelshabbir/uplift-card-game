@@ -20,29 +20,6 @@ const Board: React.FC = () => {
   const [reset, setReset] = useState(false);
   const [winSound] = useSound(winSoundFile);
 
-  const deal = () => {
-    if (cardCount === 2 && aceCount > 0) return win();
-
-    const randomCards = [];
-    for (let i = 0; i < 5; i++) {
-      randomCards.push(pickCard());
-    }
-
-    setCards(randomCards);
-    setCardCount((state) => state - 5);
-  };
-
-  useEffect(() => deal(), [reset]);
-
-  const resetStates = () => {
-    setCardCount(52);
-    setDeck([...DECK]);
-    setAceCount(4);
-    setWon(false);
-    setCards([]);
-    setReset((state) => !state);
-  };
-
   const win = () => {
     setDeck([]);
     setWon(true);
@@ -57,6 +34,29 @@ const Board: React.FC = () => {
     if (isAce(pickedCard.value)) setAceCount((state) => state - 1);
     setDeck((state) => filterDeck(state, pickedCard));
     return pickedCard;
+  };
+
+  const deal = () => {
+    if (cardCount === 2 && aceCount > 0) return win();
+
+    const randomCards = [];
+    for (let i = 0; i < 5; i++) {
+      randomCards.push(pickCard());
+    }
+
+    setCards(randomCards);
+    return setCardCount((state) => state - 5);
+  };
+
+  useEffect(() => deal(), [reset]);
+
+  const resetStates = () => {
+    setCardCount(52);
+    setDeck([...DECK]);
+    setAceCount(4);
+    setWon(false);
+    setCards([]);
+    setReset((state) => !state);
   };
 
   return (

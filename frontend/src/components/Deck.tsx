@@ -8,14 +8,17 @@ const Deck: React.FC<DeckProps> = ({ cards, normalArrangement }) => {
   return (
     <div className="flex justify-center flex-wrap my-10">
       {cards.map((card: CardProps, ind: number) => {
-        return <Card
-          key={card.color + card.suit + card.value}
-          value={card.value}
-          suit={card.suit}
-          color={card.color}
-          className={normalArrangement ? 'mt-12' : cardPositionStyle(ind)}
-        />
-        })}
+        return (
+          <Card
+            key={card.color + card.suit + card.value}
+            value={card.value}
+            suit={card.suit}
+            color={card.color}
+            className={normalArrangement ? 'mt-12' : cardPositionStyle(ind)}
+          />
+        );
+      })}
+      )
     </div>
   );
 };
