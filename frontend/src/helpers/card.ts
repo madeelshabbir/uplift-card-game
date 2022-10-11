@@ -2,10 +2,10 @@ import { TEXT_BLACK, TEXT_RED } from '../constants/color-style-classes';
 import { HEX_BLACK, HEX_RED } from '../constants/color-codes';
 import { CardColor } from '../types/card/card-color';
 import { CardSuit } from '../types/card/card-suit';
-import { ReactComponent as Club } from '../assets/Clover.svg';
-import { ReactComponent as Diamond } from '../assets/Diamond.svg';
-import { ReactComponent as Heart } from '../assets/Heart.svg';
-import { ReactComponent as Spade } from '../assets/Spade.svg';
+import { ReactComponent as Club } from '../assets/images/Clover.svg';
+import { ReactComponent as Diamond } from '../assets/images/Diamond.svg';
+import { ReactComponent as Heart } from '../assets/images/Heart.svg';
+import { ReactComponent as Spade } from '../assets/images/Spade.svg';
 import { CardProps } from '../types/card/card-props';
 import { CardValue } from '../types/card/card-value';
 

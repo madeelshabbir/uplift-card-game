@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as Winner } from '../assets/winner.svg';
+import { ReactComponent as Winner } from '../assets/images/winner.svg';
 import styles from '../stylesheets/WinnerBanner.module.css';
 
 const WinnerBanner: React.FC = () => {

@@ -19,7 +19,7 @@ const Board: React.FC = () => {
   const [aceCount, setAceCount] = useState(4);
   const [won, setWon] = useState(false);
   const [reset, setReset] = useState(false);
-  const [winSound] = useSound(require('../sounds/win.flac'));
+  const [winSound] = useSound(require('../assets/sounds/win.flac'));
 
   useEffect(() => deal(), [reset]);
 
