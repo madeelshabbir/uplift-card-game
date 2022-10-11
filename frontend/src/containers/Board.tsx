@@ -68,7 +68,7 @@ const Board: React.FC = () => {
 
       <Deck cards={cards} normalArrangement={cardCount == 0} />
 
-      { aceCount <= 0 && <LostNotification /> }
+      { aceCount <= 0 && !won && <LostNotification /> }
       { aceCount <= 0 || cardCount == 0 ? <PlayAgain onClick={resetStates} /> : <Controls onClick={deal} reset={resetStates} /> }
     </div>
   );
