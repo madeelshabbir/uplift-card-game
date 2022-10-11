@@ -7,4 +7,4 @@ export interface CardProps {
   suit: CardSuit;
   color: CardColor;
   className?: string;
-};
+}

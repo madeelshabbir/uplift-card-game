@@ -1,8 +1,8 @@
-import { CardColor } from "../types/card/card-color";
-import { CardProps } from "../types/card/card-props";
-import { CardSuit } from "../types/card/card-suit";
-import { CardValue } from "../types/card/card-value";
-import { VALUES } from "../constants/card-values";
+import { CardValue } from '../types/card/card-value';
+import { CardColor } from '../types/card/card-color';
+import { CardProps } from '../types/card/card-props';
+import { CardSuit } from '../types/card/card-suit';
+import { VALUES } from '../constants/card-values';
 
 const createDeck: () => CardProps[] = () => {
   return Object.values(CardSuit).map((suit: CardSuit) => {

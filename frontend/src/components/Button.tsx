@@ -1,10 +1,10 @@
 import React from 'react';
 import useSound from 'use-sound';
-
 import { ButtonProps } from '../types/button-props';
+import clickSoundFile from '../assets/sounds/button-click.wav';
 
 const Button: React.FC<ButtonProps> = ({ inverse, className, children, onClick }) => {
-  const [clickSound] = useSound(require('../assets/sounds/button-click.wav'));
+  const [clickSound] = useSound(clickSoundFile);
 
   const primaryStyles = `bg-gold hover:bg-gold-700 text-black`;
   const inverseStyles = `text-gold border-gold hover:text-gold-700 hover:border-gold-700 border-2`;
@@ -13,10 +13,13 @@ const Button: React.FC<ButtonProps> = ({ inverse, className, children, onClick }
   const handleClick = (callback?: () => void) => {
     callback && callback();
     clickSound();
-  }
+  };
 
   return (
-    <button onClick={() => handleClick(onClick)} className={`font-extrabold font-alfa-slab-one rounded ${styles} ${className}`}>
+    <button
+      type='button'
+      onClick={() => handleClick(onClick)}
+      className={`font-extrabold font-alfa-slab-one rounded ${styles} ${className}`}>
       {children}
     </button>
   );

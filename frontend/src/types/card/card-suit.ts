@@ -3,4 +3,4 @@ export enum CardSuit {
   Spade = 'spade',
   Diamond = 'diamond',
   Heart = 'heart',
-};
+}

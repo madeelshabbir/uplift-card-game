@@ -1,5 +1,5 @@
-import styles from './App.module.css';
 import Board from './containers/Board';
+import styles from './App.module.css';
 
 const App: React.FC = () => {
   return (
@@ -7,6 +7,6 @@ const App: React.FC = () => {
       <Board />
     </div>
   );
-}
+};
 
 export default App;
