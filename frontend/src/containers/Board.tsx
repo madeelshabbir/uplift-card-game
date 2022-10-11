@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useSound from 'use-sound';
+import winSoundFile from '../assets/sounds/win.flac';
 import Controls from '../components/Controls';
 import Deck from '../components/Deck';
 import DeckStats from '../components/DeckStats';
@@ -9,7 +10,6 @@ import WinnerBanner from '../components/WinnerBanner';
 import { DECK } from '../fixtures/deck';
 import { filterDeck, isAce, popRandom } from '../helpers/card';
 import { CardProps } from '../types/card/card-props';
-import winSoundFile from '../assets/sounds/win.flac';
 
 const Board: React.FC = () => {
   const [deck, setDeck] = useState([...DECK]);
@@ -19,6 +19,18 @@ const Board: React.FC = () => {
   const [won, setWon] = useState(false);
   const [reset, setReset] = useState(false);
   const [winSound] = useSound(winSoundFile);
+
+  const deal = () => {
+    if (cardCount === 2 && aceCount > 0) return win();
+
+    const randomCards = [];
+    for (let i = 0; i < 5; i++) {
+      randomCards.push(pickCard());
+    }
+
+    setCards(randomCards);
+    setCardCount((state) => state - 5);
+  };
 
   useEffect(() => deal(), [reset]);
 
@@ -42,21 +54,9 @@ const Board: React.FC = () => {
 
   const pickCard = () => {
     const pickedCard = popRandom(deck);
-    if (isAce(pickedCard.value)) setAceCount((aceCount) => aceCount - 1);
-    setDeck((deck) => filterDeck(deck, pickedCard));
+    if (isAce(pickedCard.value)) setAceCount((state) => state - 1);
+    setDeck((state) => filterDeck(state, pickedCard));
     return pickedCard;
-  }
-
-  const deal = () => {
-    if (cardCount === 2 && aceCount > 0) return win();
-
-    const randomCards = [];
-    for (let i = 0; i < 5; i++) {
-      randomCards.push(pickCard());
-    }
-
-    setCards(randomCards);
-    setCardCount((cardCount) => cardCount - 5);
   };
 
   return (
@@ -65,7 +65,7 @@ const Board: React.FC = () => {
 
       {won && <WinnerBanner />}
 
-      <Deck cards={cards} normalArrangement={cardCount == 0} />
+      <Deck cards={cards} normalArrangement={cardCount === 0} />
 
       {aceCount <= 0 && !won && <LostNotification />}
       {aceCount <= 0 || cardCount === 0 ? (

@@ -11,10 +11,12 @@ const createDeck: () => CardProps[] = () => {
         value,
         suit,
       };
+      });
     })
-  }).flat().map((card, ind) => {
-    return { ...card, color: ind < 26 ? CardColor.Black : CardColor.Red };
-  });
-}
+    .flat()
+    .map((card, ind) => {
+      return { ...card, color: ind < 26 ? CardColor.Black : CardColor.Red };
+    });
+};
 
 export const DECK = createDeck();

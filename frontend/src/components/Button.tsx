@@ -1,7 +1,7 @@
 import React from 'react';
 import useSound from 'use-sound';
-import { ButtonProps } from '../types/button-props';
 import clickSoundFile from '../assets/sounds/button-click.wav';
+import { ButtonProps } from '../types/button-props';
 
 const Button: React.FC<ButtonProps> = ({ inverse, className, children, onClick }) => {
   const [clickSound] = useSound(clickSoundFile);
@@ -11,15 +11,16 @@ const Button: React.FC<ButtonProps> = ({ inverse, className, children, onClick }
   const styles = inverse ? inverseStyles : primaryStyles;
 
   const handleClick = (callback?: () => void) => {
-    callback && callback();
+    if (callback) callback();
     clickSound();
   };
 
   return (
     <button
-      type='button'
+      type="button"
       onClick={() => handleClick(onClick)}
-      className={`font-extrabold font-alfa-slab-one rounded ${styles} ${className}`}>
+      className={`font-extrabold font-alfa-slab-one rounded ${styles} ${className}`}
+    >
       {children}
     </button>
   );

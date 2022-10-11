@@ -14,7 +14,9 @@ const Card: React.FC<CardProps> = ({ value, suit, color, className }) => {
           className={`font-bold text-8xl ${
             color === CardColor.Red ? 'text-red-500' : 'text-black-500'
           }`}
-        >{value}</p>
+        >
+          {value}
+        </p>
         <SuitIcon fill={suitColorCode} className="h-7.5 w-7.5 m-auto" />
       </div>
 

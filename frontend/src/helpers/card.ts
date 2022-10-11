@@ -1,16 +1,16 @@
-import { ReactComponent as Spade } from '../assets/images/Spade.svg';
-import { TEXT_BLACK, TEXT_RED } from '../constants/color-style-classes';
 import { HEX_BLACK, HEX_RED } from '../constants/color-codes';
-import { CardColor } from '../types/card/card-color';
-import { CardProps } from '../types/card/card-props';
-import { CardSuit } from '../types/card/card-suit';
 import { ReactComponent as Club } from '../assets/images/Clover.svg';
 import { ReactComponent as Diamond } from '../assets/images/Diamond.svg';
 import { ReactComponent as Heart } from '../assets/images/Heart.svg';
+import { ReactComponent as Spade } from '../assets/images/Spade.svg';
+import { TEXT_BLACK, TEXT_RED } from '../constants/color-style-classes';
+import { CardColor } from '../types/card/card-color';
+import { CardProps } from '../types/card/card-props';
+import { CardSuit } from '../types/card/card-suit';
 import { CardValue } from '../types/card/card-value';
 
 export const suitIcon = (suit: CardSuit) => {
-  switch(suit) {
+  switch (suit) {
     case CardSuit.Club:
       return Club;
     case CardSuit.Diamond:
@@ -21,29 +21,29 @@ export const suitIcon = (suit: CardSuit) => {
       return Spade;
     default:
       return Spade;
-  };
-}
+  }
+};
 
 export const colorCode = (color: CardColor) => {
-  switch(color) {
+  switch (color) {
     case CardColor.Black:
       return HEX_BLACK;
     case CardColor.Red:
       return HEX_RED;
     default:
       return HEX_BLACK;
-  };
+  }
 };
 
 export const colorStyleClass = (color: CardColor) => {
-  switch(color) {
+  switch (color) {
     case CardColor.Black:
       return TEXT_BLACK;
     case CardColor.Red:
       return TEXT_RED;
     default:
       return TEXT_BLACK;
-  };
+  }
 };
 
 export const popRandom = (deck: CardProps[]) => {
@@ -55,7 +55,7 @@ export const isAce = (value: CardValue) => {
 };
 
 export const cardPositionStyle = (index: number) => {
-  switch(index) {
+  switch (index) {
     case 0:
       return 'xl:rotate-15';
     case 1:
@@ -68,7 +68,7 @@ export const cardPositionStyle = (index: number) => {
       return 'xl:rotate-15-anti';
     default:
       return 'xl:mt-12';
-  };
+  }
 };
 
 const sameCard = (cardA: CardProps, cardB: CardProps) => {

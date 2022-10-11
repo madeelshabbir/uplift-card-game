@@ -13,5 +13,5 @@ export const VALUES: CardValue[] = [
   'J',
   'Q',
   'K',
-  'A'
+  'A',
 ];
